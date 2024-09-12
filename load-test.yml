@@ -1,0 +1,15 @@
+config:
+  target: 'http://localhost:3000'
+  phases:
+    - duration: 30
+      arrivalRate: 100
+  defaults:
+    headers:
+      Content-Type: 'application/json'
+  assertions:
+    - maxResponseTime: 50 # Set the max response time (p99 under 50ms)
+    - p99: 50 # p99 response time must be under 50ms
+scenarios:
+  - flow:
+      - get:
+          url: '/donations'
