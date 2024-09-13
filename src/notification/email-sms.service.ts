@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import * as sgMail from '@sendgrid/mail';
 import { from } from 'form-data';
+import { EnvService } from 'src/common/env.service';
 import { Twilio } from 'twilio';
+
+const env = new EnvService().read();
 
 @Injectable()
 export class EmailSmsService {
@@ -9,7 +12,7 @@ export class EmailSmsService {
 
   constructor() {
     // Initialize SendGrid
-    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    sgMail.setApiKey(env.SENDGRID_API_KEY);
 
     // Initialize Twilio
     this.twilioClient = new Twilio(
