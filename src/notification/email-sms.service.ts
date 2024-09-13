@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as sgMail from '@sendgrid/mail';
 import { from } from 'form-data';
-import { EnvService } from 'src/common/env.service';
 import { Twilio } from 'twilio';
 
 @Injectable()

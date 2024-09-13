@@ -3,11 +3,9 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
-import { EnvService } from './common/env.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  const env = new EnvService().read();
 
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());

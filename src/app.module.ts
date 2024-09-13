@@ -10,9 +10,6 @@ import { Donation } from './donations/entities/donation.entity';
 import { EmailSmsService } from './notification/email-sms.service';
 import { ConfigModule } from '@nestjs/config';
 import { Transaction } from './wallet/entities/transaction.entity';
-import { EnvService } from './common/env.service';
-
-const config = new EnvService().read();
 
 @Module({
   imports: [
